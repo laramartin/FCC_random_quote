@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="description" content="Random Video Game's Quotes Machine of Lara Martin">
+	<meta name="author" content="Lara Martin">
+	<meta name="keywords" content="HTML, CSS, JavaScript, Java, Python, PHP">
+	<!-- CSS -->
+	<link href="style.css" media="all" rel="stylesheet" type="text/css"/>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+
+			$("#getQuote").on("click", function() {
+
+				var quoteJson = {"quotes":[
+				    {
+				    "phrase":"Endure and survive.", 
+				    "author":"Ellie",
+				    "game": "The Last of Us"
+				    },
+				    {
+				    "phrase":"Nothing is more badass than treating a woman with respect.", 
+				    "author":"Mr. Torgue",
+				    "game": "Borderlands 2"
+				    },
+				    {
+				    "phrase":"It's easy to forget what a sin is in the middle of a battlefield.", 
+				    "author":"Solid Snake",
+				    "game": "Metal Gear Solid"
+				    },
+				    {
+				    "phrase":"Boss... you were right. It's not about changing the world. It's about doing our best to leave the world... the way it is. It's about respecting the will of others, and believing in your own.", 
+				    "author":"Big Boss",
+				    "game": "Metal Gear Solid IV"
+				    },
+				    {
+				    "phrase":"Thank you Mario! But our Princess is in another castle!", 
+				    "author":"Toad",
+				    "game": "Super Mario Bros."
+				    }]};
+
+				/*var minNum = 0;
+				var maxNum = quoteJson.quotes.length;*/
+
+				function randomNum(minNum, maxNum){
+					return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+				}
+
+				var myRandom = randomNum(0, quoteJson.quotes.length)
+
+				console.log("random num is: " + myRandom);
+
+
+				console.log(quoteJson.quotes[myRandom].phrase);
+
+				var html = "<div class= 'randomQuote'><b>" + quoteJson.quotes[myRandom].phrase + "</b><br> -- " + quoteJson.quotes[myRandom].author + "<div class = 'randomGame'>" + quoteJson.quotes[myRandom].game + "</div></div>"; 
+
+				$(".quotePhrase").html(html);
+
+				});
+			//});
+		});
+	</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class = "row text-center">
+			<h2>Random Video Game Quote Machine</h2>
+		</div>
+		<div class = "row text-center">
+			<div class = "col-xs-12 well quotePhrase">
+				The quote will go here
+			</div>
+		</div>
+		<div class = "row text-center">
+			<div class = "col-xs-12">
+				<button id = "getQuote" class = "btn btn-primary">
+					Get Quote
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
