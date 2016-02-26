@@ -15,6 +15,29 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+	<!-- font awesome to get icons for the buttons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+	<script>
+		window.twttr = (function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0],
+			t = window.twttr || {};
+			if (d.getElementById(id)) return t;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+			
+			t._e = [];
+			t.ready = function(f) {
+				t._e.push(f);
+			};
+			 
+			return t;
+		}
+		(document, "script", "twitter-wjs"));
+	</script>
+
 	<script>
 		$(document).ready(function() {
 
@@ -47,21 +70,18 @@
 				    "game": "Super Mario Bros."
 				    }]};
 
-				/*var minNum = 0;
-				var maxNum = quoteJson.quotes.length;*/
-
+				
 				function randomNum(minNum, maxNum){
-					return Math.floor(Math.random() * (maxNum - minNum + 1)) + minNum;
+					return Math.floor(Math.random() * (maxNum - minNum)) + minNum;
 				}
 
 				var myRandom = randomNum(0, quoteJson.quotes.length)
 
 				console.log("random num is: " + myRandom);
 
-
 				console.log(quoteJson.quotes[myRandom].phrase);
 
-				var html = "<div class= 'randomQuote'><b>" + quoteJson.quotes[myRandom].phrase + "</b><br> -- " + quoteJson.quotes[myRandom].author + "<div class = 'randomGame'>" + quoteJson.quotes[myRandom].game + "</div></div>"; 
+				var html = "<div class= 'randomQuote monofont'><em>\"" + quoteJson.quotes[myRandom].phrase + "\"</em><br><b> -- " + quoteJson.quotes[myRandom].author + "</b>" +  "<div class = 'randomGame monofont'><i class='fa fa-gamepad'></i>  " + quoteJson.quotes[myRandom].game + "</div></div>"; 
 
 				$(".quotePhrase").html(html);
 
@@ -71,22 +91,23 @@
 	</script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class = "row text-center">
-			<h2>Random Video Game Quote Machine</h2>
-		</div>
-		<div class = "row text-center">
-			<div class = "col-xs-12 well quotePhrase">
-				The quote will go here
+	<div class="container-fluid arcadeBackground">
+		<div class="container-fluid arcade">
+			<!-- <div class = "text-center">
+				<h2>Random Video Game Quote Machine</h2>
+			</div> -->
+			<div class = "text-center">
+				<div class = "quotePhrase">
+					The quote will go here
+				</div>
 			</div>
 		</div>
-		<div class = "row text-center">
-			<div class = "col-xs-12">
-				<button id = "getQuote" class = "btn btn-primary">
-					Get Quote
-				</button>
-			</div>
-		</div>
+	</div>
+	<div class = "footer text-center">
+		<button id = "getQuote" class = "btn btn-danger">
+			Get Quote
+		</button>
+		<a href="https://twitter.com/intent/tweet"　data-size="large" data-text="ola k ase"><i class="fa fa-twitter-square fa-3x"></i></a>
 	</div>
 </body>
 </html>
