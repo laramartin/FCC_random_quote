@@ -40,35 +40,38 @@
 
 	<script>
 		$(document).ready(function() {
-
+			var quoteJson = {};
+			$.getJSON( "https://raw.githubusercontent.com/laramartin/FCC_random_quote/master/game_quotes.json", function( data ) {
+				quoteJson = data;
+			});
 			$("#getQuote").on("click", function() {
 
-				var quoteJson = {"quotes":[
-				    {
-				    "phrase":"Endure and survive.", 
-				    "author":"Ellie",
-				    "game": "The Last of Us"
-				    },
-				    {
-				    "phrase":"Nothing is more badass than treating a woman with respect.", 
-				    "author":"Mr. Torgue",
-				    "game": "Borderlands 2"
-				    },
-				    {
-				    "phrase":"It's easy to forget what a sin is in the middle of a battlefield.", 
-				    "author":"Solid Snake",
-				    "game": "Metal Gear Solid"
-				    },
-				    {
-				    "phrase":"Boss... you were right. It's not about changing the world. It's about doing our best to leave the world... the way it is. It's about respecting the will of others, and believing in your own.", 
-				    "author":"Big Boss",
-				    "game": "Metal Gear Solid IV"
-				    },
-				    {
-				    "phrase":"Thank you Mario! But our Princess is in another castle!", 
-				    "author":"Toad",
-				    "game": "Super Mario Bros."
-				    }]};
+				// var quoteJson = {"quotes":[
+				//     {
+				//     "phrase":"Endure and survive.", 
+				//     "author":"Ellie",
+				//     "game": "The Last of Us"
+				//     },
+				//     {
+				//     "phrase":"Nothing is more badass than treating a woman with respect.", 
+				//     "author":"Mr. Torgue",
+				//     "game": "Borderlands 2"
+				//     },
+				//     {
+				//     "phrase":"It's easy to forget what a sin is in the middle of a battlefield.", 
+				//     "author":"Solid Snake",
+				//     "game": "Metal Gear Solid"
+				//     },
+				//     {
+				//     "phrase":"Boss... you were right. It's not about changing the world. It's about doing our best to leave the world... the way it is. It's about respecting the will of others, and believing in your own.", 
+				//     "author":"Big Boss",
+				//     "game": "Metal Gear Solid IV"
+				//     },
+				//     {
+				//     "phrase":"Thank you Mario! But our Princess is in another castle!", 
+				//     "author":"Toad",
+				//     "game": "Super Mario Bros."
+				//     }]};
 
 				
 				function randomNum(minNum, maxNum){
@@ -92,15 +95,8 @@
 </head>
 <body>
 	<div class="container-fluid arcadeBackground">
-		<div class="container-fluid arcade">
-			<!-- <div class = "text-center">
-				<h2>Random Video Game Quote Machine</h2>
-			</div> -->
-			<div class = "text-center">
-				<div class = "quotePhrase">
-					The quote will go here
-				</div>
-			</div>
+		<div class = "text-center quotePhrase">
+				The quote will go here
 		</div>
 	</div>
 	<div class = "footer text-center">
