@@ -19,26 +19,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
 	<script>
-		window.twttr = (function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0],
-			t = window.twttr || {};
-			if (d.getElementById(id)) return t;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "https://platform.twitter.com/widgets.js";
-			fjs.parentNode.insertBefore(js, fjs);
-			
-			t._e = [];
-			t.ready = function(f) {
-				t._e.push(f);
-			};
-
-			return t;
-		}
-		(document, "script", "twitter-wjs"));
-	</script>
-
-	<script>
 		$(document).ready(function() {
 			var quoteJson = {};
 			$.getJSON( "https://raw.githubusercontent.com/laramartin/FCC_random_quote/master/game_quotes.json", function( data ) {
@@ -51,19 +31,12 @@
 				}
 
 				var myRandom = randomNum(0, quoteJson.quotes.length)
-
-				console.log("random num is: " + myRandom);
-
-				console.log(quoteJson.quotes[myRandom].phrase);
-
 				var phrase = quoteJson.quotes[myRandom].phrase;
 				var author = quoteJson.quotes[myRandom].author;
 
  				$('#tweet').attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('http://goo.gl/5dJNIR "' + phrase + '" ' + author));
 				var html = "<div class= 'randomQuote monofont'><em>\"" + phrase + "\"</em><br><b> -- " + author + "</b>" +  "<div class = 'randomGame monofont'><i class='fa fa-gamepad'></i>  " + quoteJson.quotes[myRandom].game + "</div></div>"; 
-
 				$(".quotePhrase").html(html);
-
 			});
 		});
 	</script>
@@ -71,7 +44,7 @@
 <body>
 	<div class="container-fluid arcadeBackground">
 		<div class = "text-center quotePhrase">
-			The quote will go here
+			Click on the button below to get a video game quote <i class="fa fa-smile-o"></i>
 		</div>
 	</div>
 	<div class = "footer text-center">
