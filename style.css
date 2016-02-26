@@ -7,17 +7,13 @@ body {
 
 div.quotePhrase {
 	/*margin: 20% 27% 20% 33%;*/
-	margin-top:20%;
+	margin-top:15%;
 	margin-right: 27%;
 	margin-left: 33%;
 	border-radius: 10px;
 	height: 33%;
 /*	background-color: #A9F5D0;
 	border: 5px solid #2EFE9A;*/
-}
-
-.fa-twitter-square {
-	color: purple;
 }
 
 .randomQuote {
@@ -40,11 +36,13 @@ div.quotePhrase {
 	margin-bottom: 100px;
 }
 
+
 .footer {
-	background:#ffab62;
+	background:#754F44;
 	width:100%;
 	height:100px;
 	position:absolute;
 	bottom:0;
 	left:0;
+	padding: 20px;
 }
