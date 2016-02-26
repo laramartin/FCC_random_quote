@@ -32,7 +32,7 @@
 			t.ready = function(f) {
 				t._e.push(f);
 			};
-			 
+
 			return t;
 		}
 		(document, "script", "twitter-wjs"));
@@ -45,34 +45,6 @@
 				quoteJson = data;
 			});
 			$("#getQuote").on("click", function() {
-
-				// var quoteJson = {"quotes":[
-				//     {
-				//     "phrase":"Endure and survive.", 
-				//     "author":"Ellie",
-				//     "game": "The Last of Us"
-				//     },
-				//     {
-				//     "phrase":"Nothing is more badass than treating a woman with respect.", 
-				//     "author":"Mr. Torgue",
-				//     "game": "Borderlands 2"
-				//     },
-				//     {
-				//     "phrase":"It's easy to forget what a sin is in the middle of a battlefield.", 
-				//     "author":"Solid Snake",
-				//     "game": "Metal Gear Solid"
-				//     },
-				//     {
-				//     "phrase":"Boss... you were right. It's not about changing the world. It's about doing our best to leave the world... the way it is. It's about respecting the will of others, and believing in your own.", 
-				//     "author":"Big Boss",
-				//     "game": "Metal Gear Solid IV"
-				//     },
-				//     {
-				//     "phrase":"Thank you Mario! But our Princess is in another castle!", 
-				//     "author":"Toad",
-				//     "game": "Super Mario Bros."
-				//     }]};
-
 				
 				function randomNum(minNum, maxNum){
 					return Math.floor(Math.random() * (maxNum - minNum)) + minNum;
@@ -84,29 +56,33 @@
 
 				console.log(quoteJson.quotes[myRandom].phrase);
 
-				var html = "<div class= 'randomQuote monofont'><em>\"" + quoteJson.quotes[myRandom].phrase + "\"</em><br><b> -- " + quoteJson.quotes[myRandom].author + "</b>" +  "<div class = 'randomGame monofont'><i class='fa fa-gamepad'></i>  " + quoteJson.quotes[myRandom].game + "</div></div>"; 
+				var phrase = quoteJson.quotes[myRandom].phrase;
+				var author = quoteJson.quotes[myRandom].author;
+
+ 				$('#tweet').attr('href', 'https://twitter.com/intent/tweet?text=' + encodeURIComponent('http://goo.gl/5dJNIR "' + phrase + '" ' + author));
+				var html = "<div class= 'randomQuote monofont'><em>\"" + phrase + "\"</em><br><b> -- " + author + "</b>" +  "<div class = 'randomGame monofont'><i class='fa fa-gamepad'></i>  " + quoteJson.quotes[myRandom].game + "</div></div>"; 
 
 				$(".quotePhrase").html(html);
 
-				});
-			//});
+			});
 		});
 	</script>
 </head>
 <body>
 	<div class="container-fluid arcadeBackground">
 		<div class = "text-center quotePhrase">
-				The quote will go here
+			The quote will go here
 		</div>
 	</div>
 	<div class = "footer text-center">
 		<button id = "getQuote" class = "btn btn-danger">
 			Get Quote
 		</button>
-		<a href="https://twitter.com/intent/tweet"　data-size="large" data-text="ola k ase">
-		<button class = "btn btn-primary">
-		<i class="fa fa-twitter"></i> Tweet
-		</button></a>
+		<a id="tweet" href="#"　data-size="large" >
+			<button class = "btn btn-primary">
+				<i class="fa fa-twitter"></i> Tweet
+			</button>
+		</a>
 	</div>
 </body>
 </html>
