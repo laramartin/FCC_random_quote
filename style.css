@@ -24,11 +24,11 @@ div.quotePhrase {
 }
 
 .monofont{
-	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace; 
+	font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 }
 
 .arcadeBackground {
-	background-image: url(https://raw.githubusercontent.com/laramartin/FCC_random_quote/master/1.jpg);
+	background-image: url(https://raw.githubusercontent.com/laramartin/FCC_random_quote/master/src/1.jpg);
 	background-repeat:no-repeat;
 	background-size: 100% 100%;
 	position: absolute;
